@@ -1,0 +1,741 @@
+﻿$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1350px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1290px
+);
+
+$danger: #BF2738;
+$secondary: #404040;
+$component-active-bg: #262633;
+
+$custom-control-indicator-size: 1.25rem;
+$custom-control-indicator-bg: #F5F5F5;
+$custom-control-indicator-border-width: 0;
+
+$breadcrumb-divider: quote("·");
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+
+@font-face {
+	font-family: 'GolosTextWebRegular';
+	src:
+		url('../fonts/Golos-Text_Regular.woff2') format('woff2'),
+		url('../fonts/Golos-Text_Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GolosTextWebMedium';
+	src:
+		url('../fonts/Golos-Text_Medium.woff2') format('woff2'),
+		url('../fonts/Golos-Text_Medium.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GolosTextWebDemiBold';
+	src:
+		url('../fonts/Golos-Text_DemiBold.woff2') format('woff2'),
+		url('../fonts/Golos-Text_DemiBold.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GolosTextWebBold';
+	src:
+		url('../fonts/Golos-Text_Bold.woff2') format('woff2'),
+		url('../fonts/Golos-Text_Bold.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'Graphik LC Web';
+  src: 
+    url("../fonts/12024.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Road Radio';
+    src: 
+        url('../fonts/RoadRadio.woff2') format('woff2'),
+        url('../fonts/RoadRadio.woff') format('woff'),
+        url('../fonts/RoadRadio.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: 'Inter';
+    src: 
+        url('../fonts/Inter-Regular.woff2') format('woff2'),
+        url('../fonts/Inter-Regular.woff') format('woff'),
+        url('../fonts/Inter-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'AkzidenzGroteskPro-Regular';
+	src: url('../fonts/akzidenzgroteskpro-regular.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/akzidenzgroteskpro-regular.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/akzidenzgroteskpro-regular.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/akzidenzgroteskpro-regular.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/akzidenzgroteskpro-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/akzidenzgroteskpro-regular.svg#akzidenzgroteskpro-regular') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+
+
+$black: #262633;
+$black2: #212121;
+$lightblack: #797986; 
+$titlecolor: #F5F5F5;
+$lightgray: #808080;
+
+$f-color1: #222225;
+$f-color2: #2A2A2E;
+$f-color3: #F23147;
+
+@mixin clr($color) {
+    background-color: $color;
+}
+
+$spacer: 1rem;
+
+%font-golos {
+   font: {
+     family: 'GolosTextWebRegular';
+     weight: normal;
+     style: normal;  
+   }
+   color: $black; 
+}
+
+%font-rr {
+   font: {
+     family: 'Road Radio';
+     weight: normal;
+     style: normal;  
+   }
+}
+
+%font-inter {
+   font-family: Inter;
+   font-style: normal;
+   font-weight: normal; 
+}
+
+%font-agp {
+    font-family: 'AkzidenzGroteskPro-Regular';
+    font-style: normal;
+    font-weight: normal;
+}
+
+.inner-pads {
+    padding: $spacer*1.125 $spacer;
+    
+    @media screen and (min-width: 768px){
+      padding-left: 1.875*$spacer;
+      padding-right: 1.875*$spacer;
+    }
+        
+    @media screen and (min-width: 1350px){
+       padding: $spacer*1.5 0;
+    }
+}
+
+/*header*/
+.header {
+    background-color: white;
+    
+    .navbar {
+        
+        background-color: inherite;
+        
+        .navbar-brand {
+            font-size: $spacer;
+        }
+        
+        .navbar-toggler {
+            font-size: $spacer;
+            
+            .navbar-toggler-icon {
+                background-image: url('../images/menu.svg');
+                width: 16px;
+                height: 23px;
+            }
+         }
+         
+         .nav {
+            flex-wrap: nowrap;
+            
+            .nav-link {
+                @extend %font-golos;
+                padding: 0;
+                font-size: 14px;
+                line-height: 140%;
+                
+                @media screen and (min-width: 1350px) {
+                    font-size: 15px;
+                    line-height: 18px;
+                }
+            }
+         }
+         
+         
+    }
+}
+
+.nav-item > .nav-link {
+  @extend %font-golos;
+}   
+
+.phone {
+    @extend %font-golos;
+    font-family: 'GolosTextWebDemiBold';
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.mail {
+    font-family: Graphik LC Web;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 120%;
+    color: $lightblack;    
+}
+
+.btn {
+    @extend %font-rr;
+    border-radius: 14px;
+    padding: 19px 29px;
+    font-size: 14px;
+    line-height: 14px;
+    text-transform: uppercase;
+    border: none;
+}
+
+.title {
+    background: $titlecolor;
+    margin-bottom: 1.875*$spacer;
+    
+    @media screen and (min-width: 768px) {
+        margin-bottom: 2.5*$spacer;
+    }
+    
+     @media screen and (min-width: 1350px) {
+        margin-bottom: 3.875*$spacer;
+    }
+    
+    > nav {
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    > h1 {
+        @extend %font-rr;
+        text-align: center;
+        font-size: 1.375*$spacer;
+        line-height: 4.125*$spacer;
+        color: $black;
+        margin-bottom: 0;
+        
+        @media screen and (min-width: 768px) {
+          font-size: 2*$spacer;
+        }
+        
+        @media screen and (min-width: 1350px) {
+          font-size: 2.875*$spacer;
+          line-height: 6*$spacer;
+        }
+        
+    }
+}
+
+.breadcrumb {
+    margin-bottom: 0;
+    padding: 1rem;
+    background-color: inherit;
+    border-radius: 0;
+}
+
+.breadcrumb-item {
+   @extend %font-golos;
+   font-size: 0.75*$spacer;
+   line-height: $spacer;
+   color: $lightblack;
+   & > a {
+     color: $lightblack;
+   }
+   
+   & + &::before {
+    color: $lightblack;
+   }
+   
+   &.active {
+    color: $lightblack;
+    opacity: 0.5;
+}
+   
+}
+
+/*main*/
+
+h2 {
+    @extend %font-rr;
+    font-size: 1.75*$spacer;
+    line-height: 2.125*$spacer;
+    color: $black;
+    
+    @media screen and (min-width: 1350px) {
+       font-size: 2.25*$spacer;
+       line-height: 2.25*$spacer;
+       margin-bottom: 0;
+    }
+    
+}
+
+h3 { 
+    @extend %font-rr;
+    font-size: 1.25*$spacer;
+    line-height: 120%;
+    color: $black;
+    margin-bottom: 0.625*$spacer;
+    
+    @media screen and (min-width: 768px) {
+       font-size: 1.75*$spacer;
+       
+    }
+    
+    @media screen and (min-width: 1350px) {
+       font-size: 2.25*$spacer;
+       line-height: 110%;
+       margin-bottom: 1.25*$spacer;
+    }
+}
+
+h4.main-mail {
+    @extend %font-golos;
+    font-size: 1.5625*$spacer;
+    line-height: 1.875*$spacer;
+    color: $danger;
+    margin-bottom: 1.25*$spacer;
+}
+
+h6.org-name {
+  @extend %font-golos;
+  font-size: 0.875*$spacer;
+  line-height: 1.25*$spacer;
+  color: $black;
+  margin-bottom: 1.25*$spacer; 
+  
+  @media screen and (min-width: 1350px) {
+    font-size: 1.0625*$spacer;
+    line-height: 1.1875*$spacer;
+    margin-bottom: 1*$spacer;
+    
+    & > span {
+        white-space: nowrap;
+    }
+  } 
+}
+
+
+
+.bank-recvisits {
+    margin-bottom: 3.125*$spacer;
+    
+    > p {
+        @extend %font-golos;
+        font-size: 0.8125*$spacer;
+        line-height: 1.1875*$spacer;
+        color: $lightgray;
+        
+        > span {
+            white-space: nowrap;
+        }
+    }
+    
+    @media screen and (min-width: 1350px) {
+       margin-bottom: 4*$spacer; 
+    }
+}
+
+
+/*form-block*/
+
+.form-block {
+    margin-bottom: 3.125*$spacer;
+    
+    .form-group {
+        margin-bottom: 0.75*$spacer;
+        
+        @media screen and (min-width: 1350px) {
+            margin-bottom: 1.75*$spacer;
+            
+            &.col-xxl-6 {
+                flex-basis: 300px;
+            }
+        }
+    }
+    
+    .field-mb {
+        margin-bottom: 1.25*$spacer;
+    }
+    
+    .field-mb-2 {
+        margin-bottom: 1.25*$spacer;
+        
+        @media screen and (min-width: 768px) {
+            margin-bottom: 1.875*$spacer;
+        }
+    }
+    
+    .btn {
+        padding-left: 2.25*$spacer;
+        padding-right: 2.25*$spacer;
+    }
+    
+    .form-control {
+        @include clr($titlecolor);
+        @extend %font-golos;
+        height: 60px;
+        font-size: $spacer;
+        line-height: 150%;
+        border: none;
+        border-radius: 0.875*$spacer;
+        padding: 1.125*$spacer 1.25*$spacer;
+        
+        &::placeholder {
+          color: $lightblack;  
+        }
+        
+        &:focus::placeholder {
+            opacity: 0;
+        }
+        
+        @media screen and (min-width: 1350px) {
+            height: 52px;
+        }
+
+    }
+    
+    textarea.form-control {
+        height: 166px;
+        
+        @media screen and (min-width: 1350px) {
+            height: 133px;
+        }
+    }
+    
+   .custom-control-label {
+        @extend %font-golos;
+        font-size: 0.8125*$spacer;
+        line-height: 120%;
+        color: $lightgray;
+        padding-left: 0.5*$spacer;
+        
+        > span {
+            font-weight: 500;
+            color: $black;
+        }
+   }
+   
+   
+   
+}
+
+/*Map*/
+
+.map {
+    height: 477px;
+    margin-bottom: 1.875*$spacer;
+    
+    @media screen and (min-width: 768px) {
+            height: 480px;
+            margin-bottom: 3.75*$spacer;
+    }
+    
+    @media screen and (min-width: 1350px) {
+            height: 600px;
+            margin-bottom: 5*$spacer;
+    }
+}
+
+
+
+
+/*filials*/
+
+.filials-wrapper {
+    margin-bottom: 3.75*$spacer;
+    
+    @media screen and (min-width: 768px) {
+            margin-bottom: 5*$spacer;
+    }
+    
+    @media screen and (min-width: 1350px) {
+            margin-bottom: 6.25*$spacer;
+    }
+}
+
+.filials {
+    display: grid;
+    grid-gap: 0.625*$spacer;
+    grid-template-columns: 1fr;
+    
+    @media screen and (min-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media screen and (min-width: 1350px) {
+            grid-gap: 1.875*$spacer;
+            grid-template-columns: repeat(4, 1fr);
+    }
+    
+}
+
+.filials-item {
+    @include clr($titlecolor);
+    height: 310px;
+    border-radius: 1.25*$spacer;
+    padding: 2.0625*$spacer 0.75*$spacer 2.5*$spacer 0.75*$spacer;
+    
+    &.wide {
+       height: 395px;
+    
+    
+    @media screen and (min-width: 768px) {
+        grid-column: span 2;
+        height: 310px;
+    } 
+    }  
+}
+
+
+h4.city-name {
+    @extend %font-rr;
+    font-size: 1.625*$spacer;
+    line-height: 110%;
+    color: $black;
+    margin-bottom: 0.9375*$spacer;
+    text-transform: uppercase;
+}
+
+
+
+.filial-contacts-tels {
+    margin-bottom: 0.625*$spacer;
+    
+    > h5 {
+       @extend %font-golos;  
+       font-size: 1.1875*$spacer;
+       line-height: 1.8125*$spacer;
+       margin-bottom: 0;
+       
+       > span {
+        white-space: nowrap;
+       }
+    }
+}
+
+.filial-contacts-addres {
+    @extend %font-golos;  
+    font-size: 0.875*$spacer;
+    line-height: 140%;
+    color: $lightblack;
+    margin-bottom: 0.3125*$spacer;
+}
+
+.filial-contacts-route {
+   @extend .filial-contacts-addres;
+   color: $danger;
+   margin-bottom: 0;
+   
+   &:hover {
+    color: $danger;
+   } 
+}
+
+.filial-regime {
+   @extend %font-golos;  
+   font-size: 0.875*$spacer;
+   line-height: 140%;
+}
+
+/*footer*/
+
+
+%footer-pads {
+    padding: 2.5*$spacer $spacer; 
+}
+
+
+
+.footer-style-1, .footer-style-2 {
+    @extend %footer-pads;
+   
+    
+    @media screen and (min-width: 768px) {
+        
+       padding-bottom: 3*$spacer; 
+    }
+    
+    @media screen and (min-width: 1350px) {
+        display: flex;
+        padding-top: 4*$spacer;
+        
+    }
+}
+
+.footer-top {
+    border-bottom: 1px solid $lightblack;
+    
+    .footer-style-1, .footer-style-2 {
+         height: 350px;
+    }
+}
+
+.footer-bottom {
+    .footer-style-1, .footer-style-2 {
+         height: 60px;
+         p {
+            @extend %font-agp;
+            font-size: 13px;
+            line-height: 60px;
+            color: $lightblack;
+         }
+     }
+}
+
+.footer-style-1 {
+    
+    @include clr($f-color1);
+    
+    @media screen and (min-width: 768px) {
+        
+        padding-left: 1.875*$spacer;
+        padding-right: 2*$spacer;
+    }
+    
+    @media screen and (min-width: 1350px) {
+        
+        justify-content: flex-end;
+        padding-right: 8*$spacer;
+    }
+    
+}
+
+.footer-style-2 {
+    
+    @include clr($f-color2);
+    
+    @media screen and (min-width: 768px) {
+        
+        padding-left: 2*$spacer;
+        padding-right: 1.875*$spacer;
+    }
+    
+    @media screen and (min-width: 1350px) {
+        
+        justify-content: flex-start;
+        padding-left: 8*$spacer;
+    }
+}
+
+.wrapper {
+    position:relative;
+    max-width: 516px;
+    height: 100%;
+}
+
+nav.products > .nav-link {
+    @extend %font-inter;
+    font-size: 1.25*$spacer;
+    line-height: 2.125*$spacer;
+    color: white;
+    padding: 0;
+    &.actual {
+  color: $f-color3; 
+    }
+    &.actual:hover {
+        color: white;
+    }
+}
+
+
+
+nav.footer-menu > .nav-link {
+    @extend %font-agp;
+    font-size: $spacer;
+    line-height: 1.8125*$spacer;
+    color: $lightblack;
+    padding: 0 $spacer 0 0;
+    
+    &:hover {
+        color: white;
+    }
+}
+
+.tels {
+   margin-bottom: 1.25*$spacer;
+   
+   > h1 {
+    @extend %font-golos;
+    font-weight: 500;
+    color: white; 
+    font-size: 1.4375*$spacer;
+    line-height: 2.125*$spacer;
+    margin: 0;
+    }
+}
+
+.contacts .btn-outline-secondary {
+    border: 2px solid $secondary;
+    color: white;
+    padding: 0.875*$spacer 1.59*$spacer;
+}
+
+.mail-footer {
+    @extend %font-agp;
+    font-weight: 500;
+    font-size: 1.1875*$spacer;
+    line-height: 1.3125*$spacer;
+    color: $f-color3;
+      
+}
+
+.adres {
+    @extend %font-inter;
+    font-size: $spacer;
+    line-height: 1.3125*$spacer;
+    color: white;
+}
+
+.call {
+    @media screen and (min-width: 1350px) {
+        
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
